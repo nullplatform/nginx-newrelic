@@ -15,5 +15,8 @@ cp /app/config/nginx.conf.tpl $NGINX_CONFIG
 
 CPUS=$(cat /proc/cpuinfo | grep processor | wc -l)
 sed -i "s/##CPUS##/$CPUS/g" $NGINX_CONFIG
-echo "Staring nginx";
+echo "Starting newrelic";
+systemctl start newrelic-infra
+systemctl status newrelic-infra
+echo "Starting nginx";
 nginx -g "daemon off;" -c $NGINX_CONFIG

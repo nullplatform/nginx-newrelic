@@ -8,8 +8,7 @@ pid        /var/run/nginx.pid;
 events {
     worker_connections 4000;
     multi_accept on;
- }
-
+}
 
 http {
     include       /etc/nginx/mime.types;
